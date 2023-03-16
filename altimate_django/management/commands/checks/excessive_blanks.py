@@ -3,7 +3,21 @@ from django.db import models
 
 
 class ExcessiveBlanks(BaseFieldCheck):
+    """
+    This class checks if the `blank` attribute of fields is excessively set to True,
+    which may cause issues with data consistency and validation.
+
+    Inherits from the `BaseFieldCheck` class.
+    """
+
     def perform_field_check(self):
+        """
+        Checks if the `blank` attribute of the field is set to True for fields
+        other than ManyToManyField, ManyToManyRel, and ManyToOneRel.
+
+        Returns:
+            dict: A dictionary containing information about the field if the check fails, otherwise None.
+        """
         field = self.field_info.field
         # Check if the field is a ManyToManyField
         if (
