@@ -10,11 +10,8 @@ class MissingDefault(BaseFieldCheck):
 
         if (
             not field.null
-            and not field.default
-            and (
-                not is_date_or_datetime
-                or not (field.auto_now or field.auto_now_add)
-            )
+            and not field.has_default()
+            and (not is_date_or_datetime or not (field.auto_now or field.auto_now_add))
         ):
             return {
                 "severity": "Warning",
