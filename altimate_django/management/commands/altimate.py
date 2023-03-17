@@ -23,7 +23,7 @@ from .checks.missing_help_text import MissingHelpText
 from .checks.large_charfield import LargeCharField
 from .checks.unique_without_index import UniqueWithoutIndex
 from .checks.missing_default import MissingDefault
-from .checks.related_name import RelatedName
+from .checks.delete_related_name import RelatedName
 
 FIELD_CHECK_CLASSES = [
     ReverseCascade,
@@ -150,47 +150,3 @@ class Command(BaseCommand):
 
         else:
             self.stdout.write("No data issues detected.")
-
-
-# class Checks:
-#     @staticmethod
-#     def missing_str_method(model_schema: ModeInfo):
-#         if not model_schema.has__str__ and not model_schema.has__unicode__:
-#             return {
-#                 "severity": "Warning",
-#                 "description": f"Model {model_schema.model_name} should have a __str__ method for better object representation",
-#                 "explanation": "Adding a __str__ method to a model improves its readability when objects are represented as strings, such as in the Django admin interface or other management tools.",
-#             }
-#         return None
-
-#     @staticmethod
-#     def unused_many_to_many(field, model):
-#         if isinstance(field, models.ManyToManyField):
-#             related_model = field.remote_field.model
-#             instances = model.objects.all()
-
-#             for instance in instances:
-#                 if (
-#                     related_model.objects.filter(
-#                         **{field.remote_field.get_accessor_name(): instance}
-#                     ).count()
-#                     == 0
-#                 ):
-#                     return {
-#                         "severity": "Low",
-#                         "description": f"ManyToManyField {field.name} seems to be unused, consider removing it",
-#                         "explanation": "Unused ManyToManyFields can be a source of confusion and can lead to unnecessary database overhead. Consider removing the field if it's not used.",
-#                     }
-#         return None
-
-#     @staticmethod
-#     def missing_indexes(field, model_object_count, large_table_threshold=1000):
-#         if isinstance(field, models.ForeignKey) and not field.db_index:
-#             row_count = model_object_count
-#             if row_count > large_table_threshold:
-#                 return {
-#                     "severity": "Warning",
-#                     "description": f"Field {field.name} should have an index as the table has more than {large_table_threshold} rows",
-#                     "explanation": "Adding an index to ForeignKey fields can improve query performance when joining tables, especially for large datasets. An index can help the database efficiently find related records and speed up queries.",
-#                 }
-#         return None
