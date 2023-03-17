@@ -10,6 +10,7 @@ setup(
     ],
     author="Altimate Inc.",
     author_email="info@altimate.ai",
+    exclude_package_data={"": ["my_tennis_club"]},
     description="A Django extension to check for various data issues",
     classifiers=[
         "Development Status :: 3 - Alpha",
