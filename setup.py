@@ -5,9 +5,7 @@ setup(
     name="altimate_django",
     version="0.1.0",
     packages=find_packages(),
-    install_requires=[
-        "Django>=2.0",
-    ],
+    install_requires=["Django>=2.0", "tabulate>=0.9.0", "termcolor>=1.1.0"],
     author="Altimate Inc.",
     author_email="info@altimate.ai",
     exclude_package_data={"": ["my_tennis_club"]},
