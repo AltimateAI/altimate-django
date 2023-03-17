@@ -20,12 +20,7 @@ class ExcessiveNulls(BaseFieldCheck):
         field = self.field_info.field
         if field.null and not isinstance(
             field,
-            (
-                models.TextField,
-                models.CharField,
-                models.DecimalField,
-                models.IntegerField,
-            ),
+            (models.TextField, models.CharField),
         ):
 
             return {

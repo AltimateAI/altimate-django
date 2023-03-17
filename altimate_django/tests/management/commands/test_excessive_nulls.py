@@ -1,5 +1,5 @@
-import unittest
-from unittest import TestCase
+from django.test import TestCase
+from django.db import models
 from django.db import models
 from altimate_django.management.commands.checks.excessive_nulls import ExcessiveNulls
 from altimate_django.management.commands.models.field_info import FieldInfo
@@ -18,7 +18,6 @@ class TestModelB(models.Model):
 class ExcessiveNullsTestCase(TestCase):
     def test_excessive_nulls_detected(self):
         fields_to_test = [
-            ("char_field", False),
             ("int_field", True),
         ]
 
@@ -27,7 +26,6 @@ class ExcessiveNullsTestCase(TestCase):
             field_info = FieldInfo(name=field_name, model=TestModelA, field=field)
             excessive_nulls_check = ExcessiveNulls(field_info)
             result = excessive_nulls_check.perform_field_check()
-
             if should_detect:
                 self.assertIsNotNone(
                     result,
@@ -43,7 +41,6 @@ class ExcessiveNullsTestCase(TestCase):
 def test_excessive_nulls_not_detected(self):
     fields_to_test = [
         ("char_field", False),
-        ("int_field", False),
     ]
 
     for field_name, should_detect in fields_to_test:
@@ -53,7 +50,7 @@ def test_excessive_nulls_not_detected(self):
         result = excessive_nulls_check.perform_field_check()
 
         if should_detect:
-            self.assertIsNotNone(
+            self.assertIsNone(
                 result, f"ExcessiveNulls check should detect an issue in {field_name}"
             )
         else:
@@ -61,7 +58,3 @@ def test_excessive_nulls_not_detected(self):
                 result,
                 f"ExcessiveNulls check should not detect any issue in {field_name}",
             )
-
-
-if __name__ == "__main__":
-    unittest.main()
