@@ -5,12 +5,12 @@ from altimate_django.management.commands.checks.excessive_nulls import Excessive
 from altimate_django.management.commands.models.field_info import FieldInfo
 
 
-class TestModelA(models.Model):
+class ExcessiveNullsTestModelA(models.Model):
     char_field = models.CharField(max_length=100, null=True)
     int_field = models.IntegerField(null=True)
 
 
-class TestModelB(models.Model):
+class ExcessiveNullsTestModelB(models.Model):
     char_field = models.CharField(max_length=100)
     int_field = models.IntegerField()
 
@@ -22,8 +22,10 @@ class ExcessiveNullsTestCase(TestCase):
         ]
 
         for field_name, should_detect in fields_to_test:
-            field = TestModelA._meta.get_field(field_name)
-            field_info = FieldInfo(name=field_name, model=TestModelA, field=field)
+            field = ExcessiveNullsTestModelA._meta.get_field(field_name)
+            field_info = FieldInfo(
+                name=field_name, model=ExcessiveNullsTestModelA, field=field
+            )
             excessive_nulls_check = ExcessiveNulls(field_info)
             result = excessive_nulls_check.perform_field_check()
             if should_detect:
@@ -43,8 +45,10 @@ class ExcessiveNullsTestCase(TestCase):
         ]
 
         for field_name, should_detect in fields_to_test:
-            field = TestModelB._meta.get_field(field_name)
-            field_info = FieldInfo(name=field_name, model=TestModelB, field=field)
+            field = ExcessiveNullsTestModelB._meta.get_field(field_name)
+            field_info = FieldInfo(
+                name=field_name, model=ExcessiveNullsTestModelB, field=field
+            )
             excessive_nulls_check = ExcessiveNulls(field_info)
             result = excessive_nulls_check.perform_field_check()
 

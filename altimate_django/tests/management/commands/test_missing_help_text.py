@@ -4,14 +4,14 @@ from altimate_django.management.commands.checks.missing_help_text import Missing
 from altimate_django.management.commands.models.field_info import FieldInfo
 
 
-class TestModelA(models.Model):
+class MissingHelpTextTestModelA(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(
         max_length=100, help_text="A short description of the model."
     )
 
 
-class TestModelB(models.Model):
+class MissingHelpTextTestModelB(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
 
@@ -21,8 +21,8 @@ class MissingHelpTextTestCase(TestCase):
         # Test a field with help_text
         field_info_with_help_text = FieldInfo(
             name="description",
-            model=TestModelA,
-            field=TestModelA._meta.get_field("description"),
+            model=MissingHelpTextTestModelA,
+            field=MissingHelpTextTestModelA._meta.get_field("description"),
         )
         check_with_help_text = MissingHelpText(field_info_with_help_text)
         self.assertIsNone(
@@ -33,8 +33,8 @@ class MissingHelpTextTestCase(TestCase):
         # Test a field without help_text
         field_info_without_help_text = FieldInfo(
             name="description",
-            model=TestModelB,
-            field=TestModelB._meta.get_field("description"),
+            model=MissingHelpTextTestModelB,
+            field=MissingHelpTextTestModelB._meta.get_field("description"),
         )
         check_without_help_text = MissingHelpText(field_info_without_help_text)
         result = check_without_help_text.perform_field_check()

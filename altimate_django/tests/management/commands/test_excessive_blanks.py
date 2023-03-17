@@ -5,17 +5,17 @@ from altimate_django.management.commands.checks.excessive_blanks import Excessiv
 from altimate_django.management.commands.models.field_info import FieldInfo
 
 
-class TestModelA(models.Model):
+class ExcessiveBlanksTestModelA(models.Model):
     no_blank = models.CharField(max_length=255)
     excessive_blank = models.CharField(max_length=255, blank=True)
 
 
-class TestExcessiveBlanks(TestCase):
+class ExcessiveBlanksTestExcessiveBlanks(TestCase):
     def test_no_blank(self):
         field_info = FieldInfo(
-            field=TestModelA._meta.get_field("no_blank"),
+            field=ExcessiveBlanksTestModelA._meta.get_field("no_blank"),
             name="no_blank",
-            model=TestModelA,
+            model=ExcessiveBlanksTestModelA,
         )
         check = ExcessiveBlanks(field_info)
         result = check.perform_field_check()
@@ -23,9 +23,9 @@ class TestExcessiveBlanks(TestCase):
 
     def test_excessive_blank(self):
         field_info = FieldInfo(
-            field=TestModelA._meta.get_field("excessive_blank"),
+            field=ExcessiveBlanksTestModelA._meta.get_field("excessive_blank"),
             name="excessive_blank",
-            model=TestModelA,
+            model=ExcessiveBlanksTestModelA,
         )
         check = ExcessiveBlanks(field_info)
         result = check.perform_field_check()

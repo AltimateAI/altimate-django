@@ -6,30 +6,38 @@ from altimate_django.management.commands.checks.nullable_unique_fields import (
 from altimate_django.management.commands.models.field_info import FieldInfo
 
 
-class TestModelA(models.Model):
+class NullableUniqueFieldsTestModelA(models.Model):
     nullable_unique_field = models.IntegerField(unique=True, null=True)
 
 
-class TestModelB(models.Model):
+class NullableUniqueFieldsTestModelB(models.Model):
     non_nullable_unique_field = models.IntegerField(unique=True)
 
 
-class TestModelC(models.Model):
+class NullableUniqueFieldsTestModelC(models.Model):
     nullable_non_unique_field = models.IntegerField(null=True)
 
 
 class TestNullableUniqueFields(TestCase):
     def test_nullable_unique_fields_detected(self):
         fields_to_test = [
-            (TestModelA._meta.get_field("nullable_unique_field"), TestModelA, True),
             (
-                TestModelB._meta.get_field("non_nullable_unique_field"),
-                TestModelB,
+                NullableUniqueFieldsTestModelA._meta.get_field("nullable_unique_field"),
+                NullableUniqueFieldsTestModelA,
+                True,
+            ),
+            (
+                NullableUniqueFieldsTestModelB._meta.get_field(
+                    "non_nullable_unique_field"
+                ),
+                NullableUniqueFieldsTestModelB,
                 False,
             ),
             (
-                TestModelC._meta.get_field("nullable_non_unique_field"),
-                TestModelC,
+                NullableUniqueFieldsTestModelC._meta.get_field(
+                    "nullable_non_unique_field"
+                ),
+                NullableUniqueFieldsTestModelC,
                 False,
             ),
         ]

@@ -10,20 +10,20 @@ class RelatedModel(models.Model):
     name = models.CharField(max_length=255)
 
 
-class TestModelA(models.Model):
+class ForeignKeyNamingTestModelA(models.Model):
     relatedmodel_id = models.ForeignKey(RelatedModel, on_delete=models.CASCADE)
 
 
-class TestModelB(models.Model):
+class ForeignKeyNamingTestModelB(models.Model):
     incorrect_related_name = models.ForeignKey(RelatedModel, on_delete=models.CASCADE)
 
 
 class TestForeignKeyNaming(TestCase):
     def test_correct_naming_convention(self):
         field_info = FieldInfo(
-            field=TestModelA._meta.get_field("relatedmodel_id"),
+            field=ForeignKeyNamingTestModelA._meta.get_field("relatedmodel_id"),
             name="relatedmodel_id",
-            model=TestModelA,
+            model=ForeignKeyNamingTestModelA,
         )
         check = ForeignKeyNaming(field_info)
         result = check.perform_field_check()
@@ -31,9 +31,9 @@ class TestForeignKeyNaming(TestCase):
 
     def test_incorrect_naming_convention(self):
         field_info = FieldInfo(
-            field=TestModelB._meta.get_field("incorrect_related_name"),
+            field=ForeignKeyNamingTestModelB._meta.get_field("incorrect_related_name"),
             name="incorrect_related_name",
-            model=TestModelB,
+            model=ForeignKeyNamingTestModelB,
         )
         check = ForeignKeyNaming(field_info)
         result = check.perform_field_check()

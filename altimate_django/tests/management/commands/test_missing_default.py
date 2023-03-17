@@ -4,13 +4,13 @@ from altimate_django.management.commands.checks.missing_default import MissingDe
 from altimate_django.management.commands.models.field_info import FieldInfo
 
 
-class TestModelA(models.Model):
+class MissingDefaultTestModelA(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=100, default="No description")
     created_at = models.DateTimeField(auto_now_add=True)
 
 
-class TestModelB(models.Model):
+class MissingDefaultTestModelB(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
     created_at = models.DateTimeField()
@@ -21,8 +21,8 @@ class MissingDefaultTestCase(TestCase):
         # Test a field with a default value
         field_info_with_default = FieldInfo(
             name="description",
-            model=TestModelA,
-            field=TestModelA._meta.get_field("description"),
+            model=MissingDefaultTestModelA,
+            field=MissingDefaultTestModelA._meta.get_field("description"),
         )
         check_with_default = MissingDefault(field_info_with_default)
         self.assertIsNone(
@@ -33,8 +33,8 @@ class MissingDefaultTestCase(TestCase):
         # Test a field without a default value
         field_info_without_default = FieldInfo(
             name="description",
-            model=TestModelB,
-            field=TestModelB._meta.get_field("description"),
+            model=MissingDefaultTestModelB,
+            field=MissingDefaultTestModelB._meta.get_field("description"),
         )
         check_without_default = MissingDefault(field_info_without_default)
         result = check_without_default.perform_field_check()
@@ -50,8 +50,8 @@ class MissingDefaultTestCase(TestCase):
         # Test a DateTimeField with auto_now_add
         field_info_with_auto_now_add = FieldInfo(
             name="created_at",
-            model=TestModelA,
-            field=TestModelA._meta.get_field("created_at"),
+            model=MissingDefaultTestModelA,
+            field=MissingDefaultTestModelA._meta.get_field("created_at"),
         )
         check_with_auto_now_add = MissingDefault(field_info_with_auto_now_add)
         self.assertIsNone(
@@ -62,8 +62,8 @@ class MissingDefaultTestCase(TestCase):
         # Test a DateTimeField without auto_now_add or default value
         field_info_without_auto_now_add = FieldInfo(
             name="created_at",
-            model=TestModelB,
-            field=TestModelB._meta.get_field("created_at"),
+            model=MissingDefaultTestModelB,
+            field=MissingDefaultTestModelB._meta.get_field("created_at"),
         )
         check_without_auto_now_add = MissingDefault(field_info_without_auto_now_add)
         result = check_without_auto_now_add.perform_field_check()

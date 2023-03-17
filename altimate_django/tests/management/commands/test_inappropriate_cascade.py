@@ -6,16 +6,18 @@ from altimate_django.management.commands.checks.inappropriate_cascade import (
 from altimate_django.management.commands.models.field_info import FieldInfo
 
 
-class TestModelC(models.Model):
+class InappropriateCascadeTestModelC(models.Model):
     pass
 
 
-class TestModelD(models.Model):
+class InappropriateCascadeTestModelD(models.Model):
     cascade_field = models.ForeignKey(
-        TestModelC, on_delete=models.CASCADE, related_name="cascade_related"
+        InappropriateCascadeTestModelC,
+        on_delete=models.CASCADE,
+        related_name="cascade_related",
     )
     set_null_field = models.ForeignKey(
-        TestModelC,
+        InappropriateCascadeTestModelC,
         on_delete=models.SET_NULL,
         null=True,
         related_name="set_null_related",
@@ -27,8 +29,8 @@ class InappropriateCascadeTestCase(TestCase):
         # Test a ForeignKey with CASCADE on_delete
         field_info_cascade = FieldInfo(
             name="cascade_field",
-            model=TestModelD,
-            field=TestModelD._meta.get_field("cascade_field"),
+            model=InappropriateCascadeTestModelD,
+            field=InappropriateCascadeTestModelD._meta.get_field("cascade_field"),
         )
         check_cascade = InappropriateCascade(field_info_cascade)
         result_cascade = check_cascade.perform_field_check()
@@ -44,8 +46,8 @@ class InappropriateCascadeTestCase(TestCase):
         # Test a ForeignKey with SET_NULL on_delete
         field_info_set_null = FieldInfo(
             name="set_null_field",
-            model=TestModelD,
-            field=TestModelD._meta.get_field("set_null_field"),
+            model=InappropriateCascadeTestModelD,
+            field=InappropriateCascadeTestModelD._meta.get_field("set_null_field"),
         )
         check_set_null = InappropriateCascade(field_info_set_null)
         self.assertIsNone(

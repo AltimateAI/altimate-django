@@ -4,33 +4,57 @@ from altimate_django.management.commands.checks.reverse_cascade import ReverseCa
 from altimate_django.management.commands.models.field_info import FieldInfo
 
 
-class RelatedModel(models.Model):
+class ReverseCascadeRelatedModel(models.Model):
     pass
 
 
-class TestModelA(models.Model):
-    related_model = models.ForeignKey(RelatedModel, on_delete=models.CASCADE)
+class ReverseCascadeTestModelA(models.Model):
+    related_model = models.ForeignKey(
+        ReverseCascadeRelatedModel, on_delete=models.CASCADE
+    )
 
 
-class TestModelB(models.Model):
-    related_model = models.OneToOneField(RelatedModel, on_delete=models.CASCADE)
+class ReverseCascadeTestModelB(models.Model):
+    related_model = models.OneToOneField(
+        ReverseCascadeRelatedModel, on_delete=models.CASCADE
+    )
 
 
-class TestModelC(models.Model):
-    related_model = models.ForeignKey(RelatedModel, on_delete=models.CASCADE, null=True)
+class ReverseCascadeTestModelC(models.Model):
+    related_model = models.ForeignKey(
+        ReverseCascadeRelatedModel, on_delete=models.CASCADE, null=True
+    )
 
 
-class TestModelD(models.Model):
-    related_model = models.ForeignKey(RelatedModel, on_delete=models.PROTECT)
+class ReverseCascadeTestModelD(models.Model):
+    related_model = models.ForeignKey(
+        ReverseCascadeRelatedModel, on_delete=models.PROTECT
+    )
 
 
 class TestReverseCascade(TestCase):
     def test_reverse_cascade_detected(self):
         fields_to_test = [
-            (TestModelA._meta.get_field("related_model"), TestModelA, True),
-            (TestModelB._meta.get_field("related_model"), TestModelB, True),
-            (TestModelC._meta.get_field("related_model"), TestModelC, False),
-            (TestModelD._meta.get_field("related_model"), TestModelD, False),
+            (
+                ReverseCascadeTestModelA._meta.get_field("related_model"),
+                ReverseCascadeTestModelA,
+                True,
+            ),
+            (
+                ReverseCascadeTestModelB._meta.get_field("related_model"),
+                ReverseCascadeTestModelB,
+                True,
+            ),
+            (
+                ReverseCascadeTestModelC._meta.get_field("related_model"),
+                ReverseCascadeTestModelC,
+                False,
+            ),
+            (
+                ReverseCascadeTestModelD._meta.get_field("related_model"),
+                ReverseCascadeTestModelD,
+                False,
+            ),
         ]
 
         for field, model, should_detect_issue in fields_to_test:

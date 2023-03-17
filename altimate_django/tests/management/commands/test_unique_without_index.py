@@ -7,29 +7,45 @@ from altimate_django.management.commands.checks.unique_without_index import (
 from altimate_django.management.commands.models.field_info import FieldInfo
 
 
-class TestModelA(models.Model):
+class UniqueWithoutIndexTestModelA(models.Model):
     field1 = models.CharField(max_length=100, unique=True, db_index=True)
 
 
-class TestModelB(models.Model):
+class UniqueWithoutIndexTestModelB(models.Model):
     field2 = models.CharField(max_length=100, unique=True, db_index=False)
 
 
-class TestModelC(models.Model):
+class UniqueWithoutIndexTestModelC(models.Model):
     field3 = models.CharField(max_length=100, unique=False, db_index=True)
 
 
-class TestModelD(models.Model):
+class UniqueWithoutIndexTestModelD(models.Model):
     field4 = models.CharField(max_length=100, unique=False, db_index=False)
 
 
 class TestUniqueWithoutIndex(TestCase):
     def test_unique_without_index_detected(self):
         fields_to_test = [
-            (TestModelA._meta.get_field("field1"), TestModelA, False),
-            (TestModelB._meta.get_field("field2"), TestModelB, True),
-            (TestModelC._meta.get_field("field3"), TestModelC, False),
-            (TestModelD._meta.get_field("field4"), TestModelD, False),
+            (
+                UniqueWithoutIndexTestModelA._meta.get_field("field1"),
+                UniqueWithoutIndexTestModelA,
+                False,
+            ),
+            (
+                UniqueWithoutIndexTestModelB._meta.get_field("field2"),
+                UniqueWithoutIndexTestModelB,
+                True,
+            ),
+            (
+                UniqueWithoutIndexTestModelC._meta.get_field("field3"),
+                UniqueWithoutIndexTestModelC,
+                False,
+            ),
+            (
+                UniqueWithoutIndexTestModelD._meta.get_field("field4"),
+                UniqueWithoutIndexTestModelD,
+                False,
+            ),
         ]
 
         for field, model, should_detect_issue in fields_to_test:

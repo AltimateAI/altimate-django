@@ -5,15 +5,15 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from altimate_django.management.commands.models.field_info import FieldInfo
 
 
-class TestModelA(models.Model):
+class MinMaxValidatorTestModelA(models.Model):
     age = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(150)])
 
 
-class TestModelB(models.Model):
+class MinMaxValidatorTestModelB(models.Model):
     age = models.IntegerField(validators=[MinValueValidator(0)])
 
 
-class TestModelC(models.Model):
+class MinMaxValidatorTestModelC(models.Model):
     age = models.IntegerField()
 
 
@@ -21,7 +21,9 @@ class MinMaxValidatorTestCase(TestCase):
     def test_min_max_validator(self):
         # Test a field with both MinValueValidator and MaxValueValidator
         field_info_with_validators = FieldInfo(
-            name="age", model=TestModelA, field=TestModelA._meta.get_field("age")
+            name="age",
+            model=MinMaxValidatorTestModelA,
+            field=MinMaxValidatorTestModelA._meta.get_field("age"),
         )
         check_with_validators = MinMaxValidator(field_info_with_validators)
         self.assertIsNone(
@@ -31,7 +33,9 @@ class MinMaxValidatorTestCase(TestCase):
 
         # Test a field with only MinValueValidator
         field_info_with_min_validator = FieldInfo(
-            name="age", model=TestModelB, field=TestModelB._meta.get_field("age")
+            name="age",
+            model=MinMaxValidatorTestModelB,
+            field=MinMaxValidatorTestModelB._meta.get_field("age"),
         )
         check_with_min_validator = MinMaxValidator(field_info_with_min_validator)
         result = check_with_min_validator.perform_field_check()
@@ -47,7 +51,9 @@ class MinMaxValidatorTestCase(TestCase):
 
         # Test a field without any validators
         field_info_without_validators = FieldInfo(
-            name="age", model=TestModelC, field=TestModelC._meta.get_field("age")
+            name="age",
+            model=MinMaxValidatorTestModelC,
+            field=MinMaxValidatorTestModelC._meta.get_field("age"),
         )
         check_without_validators = MinMaxValidator(field_info_without_validators)
         result = check_without_validators.perform_field_check()
