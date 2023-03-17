@@ -90,9 +90,7 @@ class Command(BaseCommand):
             for model in apps.get_models()
         ]
 
-        schema_list = [
-            model_schema.to_dict() for model_schema in model_schemas
-        ]
+        schema_list = [model_schema.to_dict() for model_schema in model_schemas]
         pp = pprint.PrettyPrinter(width=38, compact=True)
         pp.pprint(schema_list)
 
