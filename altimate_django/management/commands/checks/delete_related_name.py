@@ -6,6 +6,7 @@ class RelatedName(BaseFieldCheck):
     def perform_field_check(self):
         field = self.field_info.field
         if isinstance(field, (models.ForeignKey, models.OneToOneField)):
+            print(field.related_query_name())
             if not field.related_query_name():
                 return {
                     "severity": "Warning",

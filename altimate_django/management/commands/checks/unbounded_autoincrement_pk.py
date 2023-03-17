@@ -5,7 +5,11 @@ from django.db import models
 class UnboundedAutoIncrementPK(BaseFieldCheck):
     def perform_field_check(self):
         field = self.field_info.field
-        if isinstance(field, models.AutoField) and field.max_length is None:
+        if (
+            isinstance(field, models.IntegerField)
+            and field.primary_key
+            and field.max_length is None
+        ):
             return {
                 "field": field.name,
                 "severity": "Warning",
