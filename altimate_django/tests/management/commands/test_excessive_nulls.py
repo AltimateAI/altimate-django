@@ -37,24 +37,24 @@ class ExcessiveNullsTestCase(TestCase):
                     f"ExcessiveNulls check should not detect any issue in {field_name}",
                 )
 
+    def test_excessive_nulls_not_detected(self):
+        fields_to_test = [
+            ("char_field", False),
+        ]
 
-def test_excessive_nulls_not_detected(self):
-    fields_to_test = [
-        ("char_field", False),
-    ]
+        for field_name, should_detect in fields_to_test:
+            field = TestModelB._meta.get_field(field_name)
+            field_info = FieldInfo(name=field_name, model=TestModelB, field=field)
+            excessive_nulls_check = ExcessiveNulls(field_info)
+            result = excessive_nulls_check.perform_field_check()
 
-    for field_name, should_detect in fields_to_test:
-        field = TestModelB._meta.get_field(field_name)
-        field_info = FieldInfo(name=field_name, model=TestModelB, field=field)
-        excessive_nulls_check = ExcessiveNulls(field_info)
-        result = excessive_nulls_check.perform_field_check()
-
-        if should_detect:
-            self.assertIsNone(
-                result, f"ExcessiveNulls check should detect an issue in {field_name}"
-            )
-        else:
-            self.assertIsNone(
-                result,
-                f"ExcessiveNulls check should not detect any issue in {field_name}",
-            )
+            if should_detect:
+                self.assertIsNone(
+                    result,
+                    f"ExcessiveNulls check should detect an issue in {field_name}",
+                )
+            else:
+                self.assertIsNone(
+                    result,
+                    f"ExcessiveNulls check should not detect any issue in {field_name}",
+                )

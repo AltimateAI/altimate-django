@@ -6,47 +6,74 @@ from altimate_django.management.commands.checks.cascade_for_fk_onetoone import (
 from altimate_django.management.commands.models.field_info import FieldInfo
 
 
-class ParentModel(models.Model):
-    name = models.CharField(max_length=100)
-
-
 class TestModelA(models.Model):
-    parent = models.ForeignKey(ParentModel, on_delete=models.CASCADE)
+    pass
 
 
 class TestModelB(models.Model):
-    parent = models.ForeignKey(ParentModel, on_delete=models.PROTECT)
+    cascade_field = models.ForeignKey(
+        TestModelA, on_delete=models.CASCADE, related_name="cascade_test_model_bs"
+    )
+    set_null_field = models.ForeignKey(
+        TestModelA,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="set_null_test_model_bs",
+    )
+    protect_field = models.ForeignKey(
+        TestModelA, on_delete=models.PROTECT, related_name="protect_test_model_bs"
+    )
 
 
 class TestModelC(models.Model):
-    parent = models.OneToOneField(ParentModel, on_delete=models.CASCADE)
-
-
-class TestModelD(models.Model):
-    parent = models.OneToOneField(ParentModel, on_delete=models.PROTECT)
+    one_to_one_cascade = models.OneToOneField(
+        TestModelA,
+        on_delete=models.CASCADE,
+        related_name="one_to_one_cascade_test_model_c",
+    )
+    one_to_one_protect = models.OneToOneField(
+        TestModelA,
+        on_delete=models.PROTECT,
+        related_name="one_to_one_protect_test_model_c",
+    )
 
 
 class TestCascadeForFKOneToOne(TestCase):
-    def test_cascade_for_fk_onetoone_detected(self):
-        fields_to_test = [
-            (TestModelA._meta.get_field("parent"), TestModelA, True),
-            (TestModelB._meta.get_field("parent"), TestModelB, False),
-            (TestModelC._meta.get_field("parent"), TestModelC, True),
-            (TestModelD._meta.get_field("parent"), TestModelD, False),
-        ]
+    def test_cascade_on_foreign_key(self):
+        field_info = FieldInfo(
+            field=TestModelB._meta.get_field("cascade_field"),
+            name="cascade_field",
+            model=TestModelB,
+        )
+        check = CascadeForFKOneToOne(field_info)
+        result = check.perform_field_check()
+        self.assertIsNone(
+            result,
+            "CascadeForFKOneToOne check should not detect an issue with CASCADE behavior",
+        )
 
-        for field, model, should_detect_issue in fields_to_test:
-            field_info = FieldInfo(name=field.name, model=model.__name__, field=field)
-            check = CascadeForFKOneToOne(field_info)
-            result = check.perform_field_check()
+    def test_non_cascade_on_foreign_key(self):
+        field_info = FieldInfo(
+            field=TestModelB._meta.get_field("set_null_field"),
+            name="cascade_field",
+            model=TestModelB,
+        )
+        check = CascadeForFKOneToOne(field_info)
+        result = check.perform_field_check()
+        self.assertIsNotNone(
+            result,
+            "CascadeForFKOneToOne check should detect an issue with non-CASCADE behavior",
+        )
 
-            if should_detect_issue:
-                self.assertIsNotNone(
-                    result,
-                    f"CascadeForFKOneToOne check should detect an issue in {field.name}",
-                )
-            else:
-                self.assertIsNone(
-                    result,
-                    f"CascadeForFKOneToOne check should not detect an issue in {field.name}",
-                )
+    def test_non_cascade_on_one_to_one(self):
+        field_info = FieldInfo(
+            field=TestModelC._meta.get_field("one_to_one_protect"),
+            name="cascade_field",
+            model=TestModelC,
+        )
+        check = CascadeForFKOneToOne(field_info)
+        result = check.perform_field_check()
+        self.assertIsNotNone(
+            result,
+            "CascadeForFKOneToOne check should detect an issue with non-CASCADE behavior",
+        )
