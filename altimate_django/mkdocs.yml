@@ -20,3 +20,5 @@ nav:
       - Unbounded Auto Increment: checks/unbounded_auto_increment_pk.md
       - Unique without Index: checks/unique_without_index.md
       - Excessive Nulls: checks/excessive_nulls.md
+      - Cascade on Foreign Key: checks/cascade_on_foreign_key.md
+      - Nullable Unique Field: checks/nullable_unique_fields.md

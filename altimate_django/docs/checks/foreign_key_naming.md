@@ -1,6 +1,6 @@
 <!-- checks/foreign_key_naming.md -->
 
-# Check: ForeignKey Naming
+# ForeignKey Naming
 
 ## Description
 

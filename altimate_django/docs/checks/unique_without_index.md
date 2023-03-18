@@ -1,6 +1,6 @@
 <!-- checks/unique_without_index.md -->
 
-# Check: Unique Without Index
+# Unique Without Index
 
 ## Description
 
