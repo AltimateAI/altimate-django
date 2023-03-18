@@ -1,6 +1,6 @@
 <!-- checks/large_char_field.md -->
 
-# Check: Large CharField
+# Large CharField
 
 ## Description
 

@@ -1,6 +1,6 @@
 <!-- checks/nullable_unique_fields.md -->
 
-# Check: Nullable Unique Fields
+# Nullable Unique Fields
 
 ## Description
 

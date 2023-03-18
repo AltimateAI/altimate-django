@@ -1,6 +1,6 @@
 <!-- checks/excessive_nulls.md -->
 
-# Check: Excessive Nulls
+# Excessive Nulls
 
 ## Description
 

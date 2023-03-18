@@ -1,6 +1,6 @@
 <!-- checks/cascade_on_foreign_key.md -->
 
-# Check: Cascade on ForeignKey
+# Cascade on ForeignKey
 
 ## Description
 

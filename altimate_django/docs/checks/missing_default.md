@@ -1,6 +1,6 @@
 <!-- checks/missing_default.md -->
 
-# Check: Missing Default
+# Missing Default
 
 ## Description
 

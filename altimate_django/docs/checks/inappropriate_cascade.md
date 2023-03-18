@@ -1,6 +1,6 @@
 <!-- checks/inappropriate_cascade.md -->
 
-# Check: Inappropriate Cascade
+# Inappropriate Cascade
 
 ## Description
 
