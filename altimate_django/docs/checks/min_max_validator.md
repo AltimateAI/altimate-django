@@ -1,6 +1,6 @@
 <!-- checks/min_max_validator.md -->
 
-# Check: MinMaxValidator
+# MinMaxValidator
 
 ## Description
 

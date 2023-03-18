@@ -1,6 +1,6 @@
 <!-- checks/reserved_sql_keywords.md -->
 
-# Check: Reserved SQL Keywords
+# Reserved SQL Keywords
 
 ## Description
 

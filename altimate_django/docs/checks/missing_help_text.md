@@ -1,6 +1,6 @@
 <!-- checks/missing_help_text.md -->
 
-# Check: Missing Help Text
+# Missing Help Text
 
 ## Description
 

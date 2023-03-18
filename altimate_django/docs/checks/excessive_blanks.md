@@ -1,6 +1,6 @@
 <!-- checks/excessive_blanks.md -->
 
-# Check: Excessive Blanks
+# Excessive Blanks
 
 ## Description
 

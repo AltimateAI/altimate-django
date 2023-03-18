@@ -1,6 +1,6 @@
 <!-- checks/reverse_cascade.md -->
 
-# Check: Reverse Cascade
+# Reverse Cascade
 
 ## Description
 

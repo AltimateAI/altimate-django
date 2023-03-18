@@ -1,6 +1,6 @@
 <!-- checks/unbounded_auto_increment_pk.md -->
 
-# Check: Unbounded Auto-Increment Primary Key
+# Unbounded Auto-Increment Primary Key
 
 ## Description
 
