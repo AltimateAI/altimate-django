@@ -1,6 +1,6 @@
 <!-- checks/cascade_for_fk_one_to_one.md -->
 
-# Check: Cascade for ForeignKey and OneToOneField
+# Cascade for ForeignKey and OneToOneField
 
 ## Description
 
