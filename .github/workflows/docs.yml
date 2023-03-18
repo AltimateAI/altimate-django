@@ -45,10 +45,5 @@ jobs:
       - name: Install dependencies
         run: python3 -m pip install -r ./requirements_dev.txt
 
-      - run: mkdocs build -f altimate_django/mkdocs.yml --verbose
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./altimate_django/site
+      - name: Build and Deploy
+        run: mkdocs gh-deploy -f altimate_django/mkdocs.yml --force
