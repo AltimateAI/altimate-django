@@ -9,22 +9,24 @@
       
       
       
+        <link rel="prev" href="../foreign_key_naming/">
       
-        <link rel="next" href="installation/">
       
-      <link rel="icon" href="assets/images/favicon.png">
+        <link rel="next" href="../large_char_field/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>Altimate Django</title>
+        <title>Inappropriate Cascade - Altimate Django</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -40,7 +42,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-altimate-django-library" class="md-skip">
+        <a href="#check-inappropriate-cascade" class="md-skip">
           Skip to content
         </a>
       
@@ -81,7 +83,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Altimate Django" class="md-header__button md-logo" aria-label="Altimate Django" data-md-component="logo">
+    <a href="../.." title="Altimate Django" class="md-header__button md-logo" aria-label="Altimate Django" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -100,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Inappropriate Cascade
             
           </span>
         </div>
@@ -167,7 +169,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Altimate Django" class="md-nav__button md-logo" aria-label="Altimate Django" data-md-component="logo">
+    <a href="../.." title="Altimate Django" class="md-nav__button md-logo" aria-label="Altimate Django" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -184,6 +186,135 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        Installation and Usage
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Checks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Checks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../missing_default/" class="md-nav__link">
+        Missing Default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cascade_for_fk_one_to_one/" class="md-nav__link">
+        Cascade for Foreign Key & One-to-One
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cascade_on_foreign_key" class="md-nav__link">
+        Cascade for Foreign Key
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../excessive_blanks/" class="md-nav__link">
+        Excessive Blanks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../foreign_key_naming/" class="md-nav__link">
+        Foreign Key Naming
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -196,12 +327,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Home
+          Inappropriate Cascade
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
-        Home
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Inappropriate Cascade
       </a>
       
         
@@ -220,36 +351,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#real-life-examples" class="md-nav__link">
-    Real-life Examples
-  </a>
-  
-    <nav class="md-nav" aria-label="Real-life Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-1-preventing-data-loss" class="md-nav__link">
-    Example 1: Preventing Data Loss
+  <a href="#description" class="md-nav__link">
+    Description
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#example-2-avoiding-sql-keyword-conflicts" class="md-nav__link">
-    Example 2: Avoiding SQL Keyword Conflicts
+      
+        <li class="md-nav__item">
+  <a href="#rationale" class="md-nav__link">
+    Rationale
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#example-3-ensuring-data-consistency" class="md-nav__link">
-    Example 3: Ensuring Data Consistency
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -260,63 +378,6 @@
     </li>
   
 
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="installation/" class="md-nav__link">
-        Installation and Usage
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          Checks
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Checks
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="checks/missing_default/" class="md-nav__link">
-        Missing Default
-      </a>
-    </li>
-  
-
             
           
             
@@ -325,77 +386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="checks/cascade_for_fk_one_to_one/" class="md-nav__link">
-        Cascade for Foreign Key & One-to-One
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="checks/cascade_on_foreign_key" class="md-nav__link">
-        Cascade for Foreign Key
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="checks/excessive_blanks/" class="md-nav__link">
-        Excessive Blanks
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="checks/foreign_key_naming/" class="md-nav__link">
-        Foreign Key Naming
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="checks/inappropriate_cascade/" class="md-nav__link">
-        Inappropriate Cascade
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="checks/large_char_field/" class="md-nav__link">
+      <a href="../large_char_field/" class="md-nav__link">
         Large Char Field
       </a>
     </li>
@@ -409,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="checks/min_max_validator/" class="md-nav__link">
+      <a href="../min_max_validator/" class="md-nav__link">
         Mix Max Validator
       </a>
     </li>
@@ -423,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="checks/missing_help_text/" class="md-nav__link">
+      <a href="../missing_help_text/" class="md-nav__link">
         Missing Help Text
       </a>
     </li>
@@ -437,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="checks/reserved_sql_keywords/" class="md-nav__link">
+      <a href="../reserved_sql_keywords/" class="md-nav__link">
         Reserved SQL Keywords
       </a>
     </li>
@@ -451,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="checks/reverse_cascade/" class="md-nav__link">
+      <a href="../reverse_cascade/" class="md-nav__link">
         Reverse Cascade
       </a>
     </li>
@@ -465,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="checks/unbounded_auto_increment_pk/" class="md-nav__link">
+      <a href="../unbounded_auto_increment_pk/" class="md-nav__link">
         Unbounded Auto Increment
       </a>
     </li>
@@ -479,7 +470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="checks/unique_without_index/" class="md-nav__link">
+      <a href="../unique_without_index/" class="md-nav__link">
         Unique without Index
       </a>
     </li>
@@ -493,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="checks/excessive_nulls/" class="md-nav__link">
+      <a href="../excessive_nulls/" class="md-nav__link">
         Excessive Nulls
       </a>
     </li>
@@ -534,36 +525,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#real-life-examples" class="md-nav__link">
-    Real-life Examples
-  </a>
-  
-    <nav class="md-nav" aria-label="Real-life Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-1-preventing-data-loss" class="md-nav__link">
-    Example 1: Preventing Data Loss
+  <a href="#description" class="md-nav__link">
+    Description
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#example-2-avoiding-sql-keyword-conflicts" class="md-nav__link">
-    Example 2: Avoiding SQL Keyword Conflicts
+      
+        <li class="md-nav__item">
+  <a href="#rationale" class="md-nav__link">
+    Rationale
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#example-3-ensuring-data-consistency" class="md-nav__link">
-    Example 3: Ensuring Data Consistency
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -582,36 +560,30 @@
                   
 
 
-<!-- index.md -->
+<!-- checks/inappropriate_cascade.md -->
 
-<h1 id="welcome-to-altimate-django-library">Welcome to Altimate Django Library</h1>
-<p>Altimate Django is a powerful library designed to help you maintain consistent data and prevent common issues in your Django projects. By analyzing your models' fields, this library identifies potential data inconsistencies, performance issues, and other pitfalls that could negatively impact your application.</p>
-<h2 id="real-life-examples">Real-life Examples</h2>
-<p>Imagine working on a project that requires strict data validation and performance optimization. With Django Model Field Checks, you can catch issues early, improve code quality, and ensure your project maintains high standards.</p>
-<h3 id="example-1-preventing-data-loss">Example 1: Preventing Data Loss</h3>
-<p>Suppose you have a <code>UserProfile</code> model with a <code>user</code> field, which is a ForeignKey to the built-in <code>User</code> model. When a user is deleted, you want to avoid accidentally removing their profile data. The <code>ReverseCascade</code> check can identify this issue and recommend allowing <code>null</code> values or using a different delete rule to prevent unintended data loss:</p>
-<pre><code class="language-python">from django.db import models
-from django.contrib.auth.models import User
-
-class UserProfile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Potential data loss!
-</code></pre>
-<h3 id="example-2-avoiding-sql-keyword-conflicts">Example 2: Avoiding SQL Keyword Conflicts</h3>
-<p>When naming your model fields, you might unintentionally use a reserved SQL keyword, leading to unexpected behavior or SQL syntax errors. The ReservedSQLKeywords check detects fields that use reserved SQL keywords and suggests renaming them:</p>
+<h1 id="check-inappropriate-cascade">Check: Inappropriate Cascade</h1>
+<h2 id="description">Description</h2>
+<p>This check ensures that the <code>CASCADE</code> option is not used inappropriately for the <code>on_delete</code> parameter in <code>ForeignKey</code> fields, as it can lead to unexpected data loss when a related object is deleted.</p>
+<h2 id="rationale">Rationale</h2>
+<p>Using <code>CASCADE</code> for the <code>on_delete</code> parameter in <code>ForeignKey</code> fields can result in the deletion of related objects when the referenced object is deleted. While this may be appropriate in some cases, other options like <code>SET_NULL</code> or <code>PROTECT</code> can be safer alternatives depending on the application's requirements.</p>
+<h2 id="example">Example</h2>
+<p>Consider the following model:</p>
 <pre><code class="language-python">from django.db import models
 
-class MyModel(models.Model):
-    select = models.CharField(max_length=100)  # 'select' is a reserved SQL keyword!
-</code></pre>
-<h3 id="example-3-ensuring-data-consistency">Example 3: Ensuring Data Consistency</h3>
-<p>Numeric fields in your models should have minimum and maximum value validators to ensure data consistency and prevent out-of-range values. The MinMaxValidator check identifies fields that lack these validators and recommends adding them:</p>
-<pre><code class="language-python">from django.db import models
+class Author(models.Model):
+    name = models.CharField(max_length=100)
 
-class Product(models.Model):
-    price = models.DecimalField(max_digits=10, decimal_places=2)  # No MinValueValidator or MaxValueValidator!
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
 </code></pre>
-<p>Django Model Field Checks is your secret weapon for creating robust, efficient, and consistent Django applications. By catching potential issues early and providing actionable recommendations, this library empowers you to build high-quality projects that stand the test of time.</p>
-<p>Are you ready to take your Django projects to the next level? Start using Django Model Field Checks today and unlock the full potential of your models!</p>
+<p>The author field is a ForeignKey field and is using the CASCADE option for on_delete. The check would detect this and recommend considering alternative options:</p>
+<pre><code class="language-python">author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
+# or
+author = models.ForeignKey(Author, on_delete=models.PROTECT)
+</code></pre>
+<p>Evaluate the impact of using CASCADE on your application's data integrity and choose the appropriate option based on your specific use case.</p>
 
 
 
@@ -649,10 +621,10 @@ class Product(models.Model):
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
       
     
   </body>
