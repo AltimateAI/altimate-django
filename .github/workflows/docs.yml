@@ -35,4 +35,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: site # The output directory of your built documentation, usually 'site' for MkDocs projects
+          publish_dir: ./site # The output directory of your built documentation, usually 'site' for MkDocs projects
