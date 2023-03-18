@@ -1,19 +1,19 @@
 site_name: Altimate Django
 site_description: Data issue checker for Django
-site_author: Your Name
+site_author: Altimate Inc
 theme:
   name: material
 
 markdown_extensions:
-  - admonition
-  - codehilite:
+  - markdown.extensions.codehilite:
       guess_lang: false
-  - pymdownx.superfences:
-      custom_fences:
-        - name: python
-          class: python
-          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
 
 nav:
   - Home: index.md
@@ -21,17 +21,16 @@ nav:
   - Checks:
       - Missing Default: checks/missing_default.md
       - Cascade for Foreign Key & One-to-One: checks/cascade_for_fk_one_to_one.md
-      - Cascade for Foreign Key: checks/cascade_on_foreign_key
+      - Cascade for Foreign Key: checks/cascade_on_foreign_key.md
       - Excessive Blanks: checks/excessive_blanks.md
       - Foreign Key Naming: checks/foreign_key_naming.md
       - Inappropriate Cascade: checks/inappropriate_cascade.md
       - Large Char Field: checks/large_char_field.md
-      - Mix Max Validator: checks/min_max_validator.md
+      - Min Max Validator: checks/min_max_validator.md
       - Missing Help Text: checks/missing_help_text.md
       - Reserved SQL Keywords: checks/reserved_sql_keywords.md
       - Reverse Cascade: checks/reverse_cascade.md
       - Unbounded Auto Increment: checks/unbounded_auto_increment_pk.md
       - Unique without Index: checks/unique_without_index.md
       - Excessive Nulls: checks/excessive_nulls.md
-      - Cascade on Foreign Key: checks/cascade_on_foreign_key.md
       - Nullable Unique Field: checks/nullable_unique_fields.md
