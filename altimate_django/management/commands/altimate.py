@@ -27,11 +27,8 @@ FIELD_CHECK_CLASSES = [
     MinMaxValidator,
     ExcessiveNulls,
     CascadeForFKOneToOne,
-    CharFieldsWithoutMaxLength,
     InappropriateCascade,
-    MissingRelatedNames,
     NullableUniqueFields,
-    CascadeOnDelete,
     UnboundedAutoIncrementPK,
     CascadeOnForeignKey,
     ReservedSQLKeywords,
@@ -41,7 +38,6 @@ FIELD_CHECK_CLASSES = [
     LargeCharField,
     UniqueWithoutIndex,
     MissingDefault,
-    RelatedName,
 ]
 
 
