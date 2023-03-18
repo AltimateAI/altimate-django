@@ -1,6 +1,19 @@
 site_name: Altimate Django
+site_description: Data issue checker for Django
+site_author: Your Name
 theme:
   name: material
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - pymdownx.superfences:
+      custom_fences:
+        - name: python
+          class: python
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.inlinehilite
 
 nav:
   - Home: index.md
