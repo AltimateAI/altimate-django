@@ -2,14 +2,8 @@ name: Publish Documentation to Github Pages
 
 on:
   push:
-    branches:
-      - "**"
     tags:
       - "v*.*.*"
-  # pull_request:
-  #   branches:
-  #     - "**"
-
 jobs:
   deploy:
     runs-on: ubuntu-22.04
