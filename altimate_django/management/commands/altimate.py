@@ -9,11 +9,8 @@ from .checks.reverse_cascade import ReverseCascade
 from .checks.minmax_validator import MinMaxValidator
 from .checks.excessive_nulls import ExcessiveNulls
 from .checks.cascade_for_fk_onetoone import CascadeForFKOneToOne
-from .checks.char_fields_without_max_length import CharFieldsWithoutMaxLength
 from .checks.inappropriate_cascade import InappropriateCascade
-from .checks.missing_related_names import MissingRelatedNames
 from .checks.nullable_unique_fields import NullableUniqueFields
-from .checks.cascade_on_delete import CascadeOnDelete
 from .checks.unbounded_autoincrement_pk import UnboundedAutoIncrementPK
 from .checks.cascade_on_foreign_key import CascadeOnForeignKey
 from .checks.reserved_sql_keywords import ReservedSQLKeywords
@@ -23,7 +20,7 @@ from .checks.missing_help_text import MissingHelpText
 from .checks.large_charfield import LargeCharField
 from .checks.unique_without_index import UniqueWithoutIndex
 from .checks.missing_default import MissingDefault
-from .checks.delete_related_name import RelatedName
+
 
 FIELD_CHECK_CLASSES = [
     ReverseCascade,
