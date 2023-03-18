@@ -2,14 +2,14 @@
 
 # Installation and Usage
 
-Welcome to the installation and usage guide for the `altimate_django` library! This powerful library helps you maintain consistent data and prevent common issues in your Django projects. In this guide, we'll show you how to install the library, add it to your Django project, and run the `altimate` command to trigger the checks.
+Welcome to the installation and usage guide for the `altimate-django` library! This powerful library helps you maintain consistent data and prevent common issues in your Django projects. In this guide, we'll show you how to install the library, add it to your Django project, and run the `altimate` command to trigger the checks.
 
 ## Installation
 
-To install `altimate_django`, simply use `pip` to install the package from PyPI:
+To install `altimate-django`, simply use `pip` to install the package from PyPI:
 
 ```bash
-pip install altimate_django
+pip install altimate-django
 ```
 
 ## Setup
@@ -20,7 +20,7 @@ Once you've installed the package, you need to add it to the INSTALLED_APPS sect
 # settings.py
 INSTALLED_APPS = [
     # ...
-    'altimate_django',
+    'altimate-django',
     # ...
 ]
 ```

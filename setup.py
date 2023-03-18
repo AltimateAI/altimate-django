@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="altimate_django",
+    name="altimate-django",
     version="0.1.2",
     packages=find_packages(),
     install_requires=["Django>=2.0", "tabulate>=0.9.0", "termcolor>=1.1.0"],
