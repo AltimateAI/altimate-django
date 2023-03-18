@@ -3,7 +3,12 @@ name: Publish Documentation
 on:
   push:
     branches:
-      - "*"
+      - "**"
+    tags:
+      - "v*.*.*"
+  pull_request:
+    branches:
+      - "**"
 
 jobs:
   build-and-deploy:
