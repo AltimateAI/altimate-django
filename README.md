@@ -66,7 +66,7 @@ Once you've installed the package, you need to add it to the INSTALLED_APPS sect
 # settings.py
 INSTALLED_APPS = [
     # ...
-    'altimate-django',
+    'altimate_django',
     # ...
 ]
 ```
