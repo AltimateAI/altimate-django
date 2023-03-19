@@ -224,6 +224,34 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#data-loss" class="md-nav__link">
+    Data Loss
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-corruption" class="md-nav__link">
+    Data Corruption
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-inconsistency" class="md-nav__link">
+    Data Inconsistency
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    Other
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#real-life-examples" class="md-nav__link">
     Real-life Examples
   </a>
@@ -552,6 +580,34 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#data-loss" class="md-nav__link">
+    Data Loss
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-corruption" class="md-nav__link">
+    Data Corruption
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-inconsistency" class="md-nav__link">
+    Data Inconsistency
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    Other
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#real-life-examples" class="md-nav__link">
     Real-life Examples
   </a>
@@ -603,7 +659,34 @@
 <!-- index.md -->
 
 <h1 id="welcome-to-altimate-django-library">Welcome to Altimate Django Library</h1>
-<p>Altimate Django is a powerful library designed to help you maintain consistent data and prevent common issues in your Django projects. By analyzing your models' fields, this library identifies potential data inconsistencies, performance issues, and other pitfalls that could negatively impact your application.</p>
+<p>Altimate Django is a powerful library designed to help you maintain consistent data and prevent common issues in your Django projects. By analyzing your models' fields, this library identifies potential data inconsistencies, performance issues, and other pitfalls that could negatively impact your application. The tool is designed to help developers identify and prevent potential issues in their Django models. We have classified the checks implemented in the tool according to the types of issues they can catch: data loss, data corruption, data inconsistency, and other. Understanding these categories will help developers better address the issues detected by the tool and improve the overall quality and integrity of their Django applications.</p>
+<h2 id="data-loss">Data Loss</h2>
+<ul>
+<li><strong>ReverseCascade</strong>: Ensures that a ForeignKey or OneToOneField is not set to CASCADE delete and allows null values, preventing unintended data loss when related records are deleted.</li>
+<li><strong>CascadeForFKOneToOne</strong>: Checks if a ForeignKey or OneToOneField uses CASCADE delete and does not allow null values, preventing unintended data loss when related records are deleted.</li>
+<li><strong>InappropriateCascade</strong>: Verifies that CASCADE is not being used inappropriately on ForeignKey fields, preventing unintended data loss when related records are deleted.</li>
+</ul>
+<h2 id="data-corruption">Data Corruption</h2>
+<ul>
+<li><strong>MissingDefault</strong>: Ensures that fields with null=False have a default value specified to avoid potential data corruption.</li>
+<li><strong>UniqueWithoutIndex</strong>: Verifies that unique constraints are created with indexes to prevent data corruption due to slow queries.</li>
+</ul>
+<h2 id="data-inconsistency">Data Inconsistency</h2>
+<ul>
+<li><strong>MinMaxValidator</strong>: Checks if MinValueValidator and MaxValueValidator are applied to numeric fields, ensuring data consistency and preventing out-of-range values.</li>
+<li><strong>ExcessiveNulls</strong>: Ensures that fields are not unnecessarily set to allow null values, preventing data inconsistency.</li>
+<li><strong>NullableUniqueFields</strong>: Checks if unique fields are set to allow null values, preventing data inconsistency.</li>
+<li><strong>UnboundedAutoIncrementPK</strong>: Verifies that models with auto-incrementing primary keys have a maximum value set, preventing data inconsistency due to running out of primary key values.</li>
+<li><strong>CascadeOnForeignKey</strong>: Ensures that ForeignKey fields have appropriate on_delete behavior to maintain data consistency.</li>
+<li><strong>LargeCharField</strong>: Verifies that CharField maximum lengths are set to reasonable values to maintain data consistency.</li>
+<li><strong>ExcessiveBlanks</strong>: Ensures that fields are not unnecessarily set to allow blank values, preventing data inconsistency.</li>
+</ul>
+<h2 id="other">Other</h2>
+<ul>
+<li><strong>ReservedSQLKeywords</strong>: Verifies that model and field names do not use reserved SQL keywords, preventing potential naming conflicts and issues.</li>
+<li><strong>ForeignKeyNaming</strong>: Ensures that the naming convention for ForeignKey fields follows the format: "{related_model_name.lower()}_id".</li>
+<li><strong>MissingHelpText</strong>: Checks if fields have help_text specified, improving user experience and reducing confusion.</li>
+</ul>
 <h2 id="real-life-examples">Real-life Examples</h2>
 <p>Imagine working on a project that requires strict data validation and performance optimization. With Django Model Field Checks, you can catch issues early, improve code quality, and ensure your project maintains high standards.</p>
 <h3 id="example-1-preventing-data-loss">Example 1: Preventing Data Loss</h3>
@@ -628,8 +711,6 @@
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">class</span> <span class="nc">Product</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># No MinValueValidator or MaxValueValidator!</span>
 </span></code></pre></div>
-<p>Django Model Field Checks is your secret weapon for creating robust, efficient, and consistent Django applications. By catching potential issues early and providing actionable recommendations, this library empowers you to build high-quality projects that stand the test of time.</p>
-<p>Are you ready to take your Django projects to the next level? Start using Django Model Field Checks today and unlock the full potential of your models!</p>
 
 
 
