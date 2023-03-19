@@ -91,10 +91,16 @@ class Command(BaseCommand):
         recommendations = []
         for field_info in model_info.fields:
             for check in FIELD_CHECK_CLASSES:
-                result = check(field_info).perform_field_check()
-                if result:
-                    recommendations.append(
-                        (model_info.model_name, field_info.name, result)
+                try:
+                    result = check(field_info).perform_field_check()
+                    if result:
+                        recommendations.append(
+                            (model_info.model_name, field_info.name, result)
+                        )
+                except Exception as e:
+                    self.stderr.write(
+                        f"Error while executing {check.__name__} check for "
+                        f"{model_info.model_name}.{field_info.name}: {str(e)}"
                     )
         return recommendations
 
