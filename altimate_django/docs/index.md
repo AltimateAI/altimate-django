@@ -42,7 +42,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)  # No MinValueValidator or MaxValueValidator!
 ```
 
-Django Model Field Checks is your secret weapon for creating robust, efficient, and consistent Django applications. By catching potential issues early and providing actionable recommendations, this library empowers you to build high-quality projects that stand the test of time.
+The tool is designed to help developers identify and prevent potential issues in their Django models. We have classified the checks implemented in the tool according to the types of issues they can catch: data loss, data corruption, data inconsistency, and other. Understanding these categories will help developers better address the issues detected by the tool and improve the overall quality and integrity of their Django applications.
 
 ## Data Loss
 
