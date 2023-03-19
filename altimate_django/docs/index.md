@@ -2,7 +2,34 @@
 
 # Welcome to Altimate Django Library
 
-Altimate Django is a powerful library designed to help you maintain consistent data and prevent common issues in your Django projects. By analyzing your models' fields, this library identifies potential data inconsistencies, performance issues, and other pitfalls that could negatively impact your application.
+Altimate Django is a powerful library designed to help you maintain consistent data and prevent common issues in your Django projects. By analyzing your models' fields, this library identifies potential data inconsistencies, performance issues, and other pitfalls that could negatively impact your application. The tool is designed to help developers identify and prevent potential issues in their Django models. We have classified the checks implemented in the tool according to the types of issues they can catch: data loss, data corruption, data inconsistency, and other. Understanding these categories will help developers better address the issues detected by the tool and improve the overall quality and integrity of their Django applications.
+
+## Data Loss
+
+- **ReverseCascade**: Ensures that a ForeignKey or OneToOneField is not set to CASCADE delete and allows null values, preventing unintended data loss when related records are deleted.
+- **CascadeForFKOneToOne**: Checks if a ForeignKey or OneToOneField uses CASCADE delete and does not allow null values, preventing unintended data loss when related records are deleted.
+- **InappropriateCascade**: Verifies that CASCADE is not being used inappropriately on ForeignKey fields, preventing unintended data loss when related records are deleted.
+
+## Data Corruption
+
+- **MissingDefault**: Ensures that fields with null=False have a default value specified to avoid potential data corruption.
+- **UniqueWithoutIndex**: Verifies that unique constraints are created with indexes to prevent data corruption due to slow queries.
+
+## Data Inconsistency
+
+- **MinMaxValidator**: Checks if MinValueValidator and MaxValueValidator are applied to numeric fields, ensuring data consistency and preventing out-of-range values.
+- **ExcessiveNulls**: Ensures that fields are not unnecessarily set to allow null values, preventing data inconsistency.
+- **NullableUniqueFields**: Checks if unique fields are set to allow null values, preventing data inconsistency.
+- **UnboundedAutoIncrementPK**: Verifies that models with auto-incrementing primary keys have a maximum value set, preventing data inconsistency due to running out of primary key values.
+- **CascadeOnForeignKey**: Ensures that ForeignKey fields have appropriate on_delete behavior to maintain data consistency.
+- **LargeCharField**: Verifies that CharField maximum lengths are set to reasonable values to maintain data consistency.
+- **ExcessiveBlanks**: Ensures that fields are not unnecessarily set to allow blank values, preventing data inconsistency.
+
+## Other
+
+- **ReservedSQLKeywords**: Verifies that model and field names do not use reserved SQL keywords, preventing potential naming conflicts and issues.
+- **ForeignKeyNaming**: Ensures that the naming convention for ForeignKey fields follows the format: "{related_model_name.lower()}\_id".
+- **MissingHelpText**: Checks if fields have help_text specified, improving user experience and reducing confusion.
 
 ## Real-life Examples
 
@@ -41,7 +68,3 @@ from django.db import models
 class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)  # No MinValueValidator or MaxValueValidator!
 ```
-
-Django Model Field Checks is your secret weapon for creating robust, efficient, and consistent Django applications. By catching potential issues early and providing actionable recommendations, this library empowers you to build high-quality projects that stand the test of time.
-
-Are you ready to take your Django projects to the next level? Start using Django Model Field Checks today and unlock the full potential of your models!
