@@ -106,6 +106,10 @@ python manage.py altimate
 
 This command will analyze your models' fields and report any potential issues or inconsistencies, along with actionable recommendations to improve your code quality and data consistency.
 
+## Sample Output
+
+![Sample Output](./altimate_django/docs/imgs/output.png "Sample Output")
+
 ## Happy Coding!
 
 With altimate_django installed and configured, you're ready to enhance the robustness, efficiency, and consistency of your Django applications. Enjoy building high-quality projects and be confident that your models stand the test of time!
