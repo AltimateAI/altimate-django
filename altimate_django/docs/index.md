@@ -68,3 +68,7 @@ from django.db import models
 class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)  # No MinValueValidator or MaxValueValidator!
 ```
+
+## Sample Output
+
+![img] (./imgs/output.png "Sample Output")
