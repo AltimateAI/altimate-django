@@ -108,7 +108,7 @@ This command will analyze your models' fields and report any potential issues or
 
 ## Sample Output
 
-![img] (./altimate_django/docs/imgs/output.png "Sample Output")
+![Sample Output](./altimate_django/docs/imgs/output.png "Sample Output")
 
 ## Happy Coding!
 

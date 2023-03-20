@@ -71,4 +71,4 @@ class Product(models.Model):
 
 ## Sample Output
 
-![img] (./imgs/output.png "Sample Output")
+![Sample Output](./imgs/output.png "Sample Output")
