@@ -4,6 +4,8 @@
 
 Altimate Django is a powerful library designed to help you maintain consistent data and prevent common issues in your Django projects. By analyzing your models' fields, this library identifies potential data inconsistencies, performance issues, and other pitfalls that could negatively impact your application.
 
+Docs: [http://altimateai.github.io/altimate-django/](http://altimateai.github.io/altimate-django/)
+
 ## Real-life Examples
 
 Imagine working on a project that requires strict data validation and performance optimization. With Django Model Field Checks, you can catch issues early, improve code quality, and ensure your project maintains high standards.
