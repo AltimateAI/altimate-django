@@ -1,6 +1,7 @@
 <!-- index.md -->
 
-# Welcome to Altimate Django Library
+# Welcome to Altimate Django Library                
+![Downloads](https://img.shields.io/pypi/dm/altimate-django "Downloads") [![CI/CD](https://github.com/AltimateAI/altimate-django/actions/workflows/pipeline.yml/badge.svg)](https://github.com/AltimateAI/altimate-django/actions/workflows/pipeline.yml)
 
 Altimate Django is a powerful library designed to help you maintain consistent data and prevent common issues in your Django projects. By analyzing your models' fields, this library identifies potential data inconsistencies, performance issues, and other pitfalls that could negatively impact your application.
 
